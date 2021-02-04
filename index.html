@@ -29,15 +29,7 @@
 			right: 50px;
 			overflow:hidden;
 		}
-		.box ul {
-			position:absolute;
-			top:0;
-			left:0;
-			width:2000px; 
-		}
-		.box ul li {
-			float:left; 
-		}
+		
 		#timebox{
 			height: 300px;
 			width: 700px;
@@ -154,14 +146,9 @@
 		</div>
 	</div>
 	<div class="box" id="box">
-			<ul style="left:0px;">
-				<li><img src="1.JPG"></li>
-				<li><img src="2.JPG"></li>
-				<li><img src="3.JPG"/></li>
-				<li><img src="4.JPG"></li>
-				<li><img src="5.JPG"></li>
-				<li><img src="6.JPG"></li>
-			</ul>
+			<video width="250" height="240" controls autoplay>
+				<source src="CQVE3440.MP4" type="video/MP4">
+		</video>
 		</div>
 <div id="timebox">
 		 <h1>距2021年还有</h1>
@@ -188,47 +175,6 @@
 </table>
 
 	</div>
-<script>
-	var box = document.getElementById("box");
-	var ul = box.children[0];
-	var list = ul.children;
-	var imgWidth = box.offsetWidth; 
-	var len = list.length;
-	var movePx = 10; 
-	var picFlag = 0;
-	var periodTime = 3000; 
-	var timer = null; 
-	var setTime = 10;
- 
-	console.log(imgWidth);
-	console.log(ul.offsetLeft);
-
-	function roll(distance){ 
-	}
-	ul.append(list[0].cloneNode(true));
-	
-	function autoRun(){
-	clearInterval(ul.timer);
-	picFlag++;
-	if(picFlag == len){ 
-		picFlag = 1; 
-		ul.style.left = 0; 
-	}
-	var distance = -picFlag * imgWidth; // 
-	console.log(distance);
-	
-	ul.timer = setInterval(function(){
-		ul.style.left = ul.offsetLeft - movePx + "px";
-		var leave = distance - ul.offsetLeft; // 到终点前剩下的距离
-		if(Math.abs(leave) < Math.abs(movePx)){
-			clearInterval(ul.timer);
-			ul.style.left = distance + "px"; // 不足一次滚动的距离时，直接到达
-		}
-	}, setTime);
-	
-}
-	timer = setInterval(autoRun, periodTime); // 开始滚动
-		</script>
     <script>
         var windowWidth = window.screen.width;
         var windowHeight = window.screen.height;
